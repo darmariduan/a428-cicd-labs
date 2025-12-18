@@ -19,10 +19,17 @@ pipeline {
                 sh './jenkins/scripts/test.sh'
             }
         }
-        stage('Deliver') {
+        stage('Manual Approval') {
+            steps {
+                input message: 'Lanjutkan ke tahap Deploy?', ok: 'Proceed'
+            }
+        }
+        stage('Deploy') {
             steps {
                 sh './jenkins/scripts/deliver.sh'
-                input message: 'Finished using the website? (Click "Proceed" to continue)'
+                echo 'Aplikasi berjalan di http://localhost:3000'
+                echo 'Aplikasi akan berjalan selama 1 menit...'
+                sleep time: 1, unit: 'MINUTES'
                 sh './jenkins/scripts/kill.sh'
             }
         }

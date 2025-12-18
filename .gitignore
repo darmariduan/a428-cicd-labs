@@ -57,3 +57,9 @@ typings/
 
 # dotenv environment variables file
 .env
+
+# Panduan submission - tidak perlu di-push
+PANDUAN_SUBMISSION.md
+PANDUAN_SUBMISSION_2.md
+LANGKAH_CEPAT.md
+AKSES_BLUE_OCEAN.md
